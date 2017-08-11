@@ -1,0 +1,77 @@
+hub:
+  build: hub/
+  ports:
+    - 4444:4444
+  container_name: selenium_hub
+firefox1:
+  build: firefox_debug_v54/
+  ports:
+    - 5901:5900
+  container_name: firefox_v54
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
+chrome1:
+  build: chrome_debug_v59
+  ports:
+    - 5902:5900
+  container_name: chrome_v59
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
+chrome2:
+  build: chrome_debug_v58
+  ports:
+    - 5903:5900
+  container_name: chrome_v58
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
+chrome3:
+  build: chrome_debug_v57
+  ports:
+    - 5904:5900
+  container_name: chrome_v57
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
+chrome4:
+  build: chrome_debug_v56
+  ports:
+    - 5905:5900
+  container_name: chrome_v56
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
+chrome5:
+  build: chrome_debug_v55
+  ports:
+    - 5906:5900
+  container_name: chrome_v55
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+    - NODE_REGISTER_CYCLE=5000
+    - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  links:
+    - hub
